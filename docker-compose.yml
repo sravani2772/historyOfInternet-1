@@ -1,26 +1,9 @@
 version: "3.2"
 
 services:
-  app:
-    image: node:12-alpine
-    command: sh -c "cd app && yarn install && yarn run dev"
+  apache:
+    build: .
     ports:
-      - 3000:3000
-    working_dir: /app
+      - 8080:80
     volumes:
-      - ./:/app
-    environment:
-      MYSQL_HOST: mariadb
-      MYSQL_USER: root
-      MYSQL_PASSWORD: secret
-      MYSQL_DB: todos
-  mariadb:
-    image: "mariadb:10.6"
-    volumes:
-      - todo-mysql-data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: todos
-
-volumes:
-  todo-mysql-data:
+      - ./public_html/:/usr/local/apache2/htdocs/
