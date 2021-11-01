@@ -338,9 +338,11 @@ h3
 }
 
 .sidenav a {
-    padding: 6px 8px 6px 16px;
+
+    margin-top: 30px;
+    padding: 20px 8px 6px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 22px;
     color: #2196F3;
     display: block;
 }
